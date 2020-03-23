@@ -1,4 +1,5 @@
 import React from 'react';
+import { BrowserRouter, Route } from 'react-router-dom'
 
 import Site from './Site'
 import Rodape from './componentes/Rodape'
@@ -8,13 +9,16 @@ import Servicos from './componentes/Servicos';
 
 function App() {
   return (
-    <div className="App">
-      <Cabecalho />
-      <Inicio />
-      <Servicos />
-      <Site />
-      <Rodape />
-    </div>
+    <BrowserRouter>
+      <div className="App">
+        <Cabecalho />
+
+        <Route exact path='/' component={Inicio} />
+        <Route path='/servicos' component={Servicos} />
+
+        <Rodape />
+      </div>
+    </BrowserRouter>
   );
 }
 
