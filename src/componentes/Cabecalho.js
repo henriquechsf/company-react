@@ -32,8 +32,8 @@ const Cabecalho = props => {
                             <li><Link to='/'>INÍCIO</Link></li>
                             <li><Link to='/servicos'>SERVIÇOS</Link></li>
                             <li><Link to='/portfolio'>PORTFOLIO</Link></li>
-                            <li><a href='#pricing'>PRICING</a></li>
-                            <li><a href='#contact'>CONTACT</a></li>
+                            <li><Link to='/precos'>PREÇOS</Link></li>
+                            <li><Link to='/contato'>FALE CONOSCO</Link></li>
                         </ul>
                     </div>
                 </div>
