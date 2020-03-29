@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 
 // conexao com o firebase
 import config from '../firebase-config'
+import ItemPortfolio from './ItemPortfolio'
 
 class Portfolio extends Component {
     constructor(props) {
@@ -30,13 +31,15 @@ class Portfolio extends Component {
                     <h2>Portfolio</h2><br />
                     <h4>What we have created</h4>
                     <div className='row text-center '>
-                        <div className='col-sm-4'>
-                            <div className='thumbnail'>
-                                <img src='paris.jpg' alt='' width='400' height='300' />
-                                <p><strong>{this.state.portfolio.titulo}</strong></p>
-                                <p>{this.state.portfolio.descricao}</p>
-                            </div>
-                        </div>
+
+                        {/* Renderizar componente item aqui */}
+                        {
+                            Object.keys(this.state.portfolio)
+                                .map(key => {
+                                    {/**Passando props p/ componente filho */ }
+                                    return <ItemPortfolio key={key} conteudo={this.state.portfolio[key]} />
+                                })
+                        }
 
                     </div><br />
 
