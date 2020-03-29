@@ -14,6 +14,9 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = firebase.initializeApp(firebaseConfig);
-const config = rebase.createClass(app.database())
+const config = rebase.createClass(app.database());
+
+// exportar o storage para salvar as imagens, importar no AdminPortfolio
+export const storage = app.storage();
 
 export default config;
