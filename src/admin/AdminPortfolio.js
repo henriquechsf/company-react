@@ -43,7 +43,7 @@ class AdminPortfolio extends Component {
 
     render() {
         return (
-            <div style={{ padding: '0 120px' }}>
+            <div>
                 <h2>Portfófio - Área Administrativa</h2>
 
                 <form onSubmit={this.gravaPortfolio}>

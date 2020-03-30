@@ -15,7 +15,7 @@ class Admin extends Component {
         const path = this.props.match.url
 
         return (
-            <div>
+            <div className="container">
                 <h2>Painel Administtrativo</h2>
                 <Route path={`/`} component={AdminMenu} />
                 <Route path={`${path}/portfolio`} component={AdminPortfolio} />

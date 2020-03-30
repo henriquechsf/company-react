@@ -6,7 +6,10 @@ import Servicos from './componentes/Servicos';
 import Portfolio from './componentes/Portfolio';
 import Precos from './componentes/Precos';
 import Contato from './componentes/Contato';
+
+// Area Administrativa
 import Admin from './admin/Admin';
+import Login from './admin/Login';
 
 function Routes() {
     return (
@@ -18,6 +21,7 @@ function Routes() {
             <Route path='/contato' component={Contato} />
 
             <Route path='/admin' component={Admin} />
+            <Route path='/login' component={Login} />
         </>
     )
 }

@@ -18,5 +18,7 @@ const config = rebase.createClass(app.database());
 
 // exportar o storage para salvar as imagens, importar no AdminPortfolio
 export const storage = app.storage();
+// autenticacao do usuario
+export const auth = app.auth()
 
 export default config;

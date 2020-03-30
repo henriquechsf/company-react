@@ -8,7 +8,7 @@ const AdminMenu = props => {
             <div className="list-group-item list-group-item-action active">
                 Selecione uma opção
             </div>
-            <Link to='/portfolio' className="list-group-item list-group-item-action">Portfólio</Link>
+            <Link to='/admin/portfolio' className="list-group-item list-group-item-action">Portfólio</Link>
 
         </div>
 
