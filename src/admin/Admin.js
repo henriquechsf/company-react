@@ -30,7 +30,11 @@ class Admin extends Component {
 
     render() {
         if (this.state.estaLogando) {
-            return <p>Aguarde...</p>
+            return (
+                <div className="container">
+                    <p><span className="glyphicon glyphicon-refresh" />Aguarde...</p>
+                </div>
+            )
         }
         if (!this.state.estaAutenticado) {
             return <Redirect to='/login' />

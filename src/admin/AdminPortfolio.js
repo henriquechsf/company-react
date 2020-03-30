@@ -6,6 +6,10 @@ class AdminPortfolio extends Component {
     constructor(props) {
         super(props)
 
+        this.state = {
+            estaGravando: false
+        }
+
         // bind para acessar o this em escopo diferente
         this.gravaPortfolio = this.gravaPortfolio.bind(this)
     }
@@ -13,11 +17,17 @@ class AdminPortfolio extends Component {
     // grava os dados no Firebase
     gravaPortfolio(e) {
         e.preventDefault()
+        const itemPortfolio = {
+            titulo: this.titulo.value,
+            descricao: this.descricao.value,
+            imagem: this.imagem
+        }
+
+        this.setState({ estaGravando: true })
 
         // arquivo passa no input imagem
         const arquivo = this.imagem.files[0]
         const { name, size, type } = arquivo
-        console.log(name, size, type)
 
         // referencia do arquivo
         const ref = storage.ref(name)
@@ -28,8 +38,8 @@ class AdminPortfolio extends Component {
                 img.ref.getDownloadURL()
                     .then(downloadURL => {
                         const novoPortfolio = {
-                            titulo: this.titulo.value,
-                            descricao: this.descricao.value,
+                            titulo: itemPortfolio.titulo,
+                            descricao: itemPortfolio.descricao,
                             imagem: downloadURL
                         }
 
@@ -37,11 +47,21 @@ class AdminPortfolio extends Component {
                         config.push('portfolio', {
                             data: novoPortfolio
                         })
+
+                        this.setState({ estaGravando: false })
                     })
             })
     }
 
     render() {
+        if (this.state.estaGravando) {
+            return (
+                <div className="container">
+                    <p><span className="glyphicon glyphicon-refresh" />Salvando...</p>
+                </div>
+            )
+        }
+
         return (
             <div>
                 <h2>Portfófio - Área Administrativa</h2>
